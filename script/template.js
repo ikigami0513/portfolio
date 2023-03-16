@@ -140,6 +140,14 @@ function setText(translate, langue){
     const file = window.location.pathname;
     const active_class = "nav-link active";
     switch(file){
+        case '':
+            document.querySelector("#index_link").className = active_class;
+            index(translate, langue);
+            break;
+        case '/':
+            document.querySelector("#index_link").className = active_class;
+            index(translate, langue);
+            break;
         case '/index.html':
             document.querySelector("#index_link").className = active_class;
             index(translate, langue);
