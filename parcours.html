@@ -10,6 +10,17 @@
         <link href="css/header.css" rel="stylesheet"/>
         <link href="css/parcours.css" rel="stylesheet"/>
         <script language="javascript" src="script/template.js"></script>
+        <style>
+            .documents{
+                transition: 0.3s;
+                height: 150px;
+            }
+
+            .documents:hover{
+                transition: 0.3s;
+                transform: scale(1.5);
+            }
+        </style>
     </head>
     
     <body>
@@ -253,6 +264,24 @@
                                 <li>Electron.js</li>
                             </ul>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="b-example-divider"></div>
+
+        <main class="px-3">
+            <div class="container px-4 py-5" id="experiences_profesionnelles">
+                <h2 class="pb-2 border-bottom">Documents</h2>
+                <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+                    <div class="feature col">
+                        <div id="stage_2_sio_date"></div>
+                        <h3 class="fs-2" id="stage_2_sio_title">
+                            <a href="documents/cv.pdf" target="_blank">
+                                <img class="documents" src="assets/cv.png" alt="icone de cv"/>
+                            </a>
+                        </h3>
                     </div>
                 </div>
             </div>
