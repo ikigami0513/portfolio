@@ -126,25 +126,12 @@ function setText(translate, langue){
     const file = window.location.pathname;
     switch(file){
         case '/index.html':
+            document.querySelector("#index_link").className = active_class;
             index(translate, langue);
             break;
         case '/parcours.html':
-            parcours(translate, langue);
-            break;
-        default:
-            break;
-    }
-}
-
-function setActive(){
-    const file = window.location.pathname;
-    const active_class = "nav-link active";
-    switch(file){
-        case "/index.html":
-            document.querySelector("#index_link").className = active_class;
-            break;
-        case "/parcours.html":
             document.querySelector("#parcours_link").className = active_class;
+            parcours(translate, langue);
             break;
         default:
             break;
@@ -166,8 +153,6 @@ async function main(){
     menu(translate, langue);
     setActive();
     footer(translate, langue);
-
-    setText(translate, langue);
 
     var langue_select = document.querySelector("#langue");
     langue_select.value = langue;
