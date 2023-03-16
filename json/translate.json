@@ -7,6 +7,14 @@
             "projets": "Projets",
             "veille": "Veilles"
         },
+        "footer":{
+            "etudes": "Études",
+            "exp_pro": "Expériences professionnelles",
+            "exp_perso": "Expériences personnelles",
+            "techno": "Technologies",
+            "ecole_inte": "École intégrée",
+            "metier_envi": "Métier envisagé"
+        },
         "index": "Titulaire d'un baccalauréat général spécialités mathématiques, physique-chimie et sciences de l'ingénieur, je suis en préparation d'un BTS SIO SLAM au <a target=\"_blank\" href=\"https://www.ensemble-baudimont.com/pole-sup/\">Pôle Sup' de l'Ensemble Baudimont</a> à Arras.<br/><br/> Ce BTS forme principalement au développement web mais également à la programmation orientée objet."
     },
     "en": {
@@ -16,6 +24,14 @@
             "projet_pro": "Professional project",
             "projets": "Projects",
             "veille": "Watch"
+        },
+        "footer":{
+            "etudes": "Studies",
+            "exp_pro": "Professional experiences",
+            "exp_perso": "Personal experiences",
+            "techno": "Technologies",
+            "ecole_inte": "Integrated school",
+            "metier_envi": "Intended job"
         },
         "index": "Holder of a general baccalaureate with specializations in mathematics, physics-chemistry and engineering sciences, I am preparing for a BTS SIO SLAM at the <a target=\"_blank\" href=\"https://www.ensemble-baudimont.com/pole-sup/\">Pôle Sup' of the Ensemble Baudimont</a> in Arras.<br/><br/> This BTS mainly trains in web development but also in object-oriented programming."
     }

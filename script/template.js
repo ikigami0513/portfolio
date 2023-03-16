@@ -7,15 +7,15 @@ function menu(translate, langue){
             </a>
 
             <ul class="nav nav-pills">
-                <li class="nav-item"><a href="index.html" class="nav-link active" aria-current="page">${translate[langue]["menu"]["qui"]}</a></li>
-                <li class="nav-item"><a href="parcours.html" class="nav-link">${translate[langue]["menu"]["parcours"]}</a></li>
-                <li class="nav-item"><a href="projet_professionel.html" class="nav-link">${translate[langue]["menu"]["projet_pro"]}</a></li>
-                <li class="nav-item"><a href="projets.html" class="nav-link">${translate[langue]["menu"]["projets"]}</a></li>
-                <li class="nav-item"><a href="veilles.html" class="nav-link">${translate[langue]["menu"]["veille"]}</a></li>
+                <li class="nav-item"><a href="index.html?langue=${langue}" class="nav-link active" aria-current="page">${translate[langue]["menu"]["qui"]}</a></li>
+                <li class="nav-item"><a href="parcours.html?langue=${langue}" class="nav-link">${translate[langue]["menu"]["parcours"]}</a></li>
+                <li class="nav-item"><a href="projet_professionel.html?langue=${langue}" class="nav-link">${translate[langue]["menu"]["projet_pro"]}</a></li>
+                <li class="nav-item"><a href="projets.html?langue=${langue}" class="nav-link">${translate[langue]["menu"]["projets"]}</a></li>
+                <li class="nav-item"><a href="veilles.html?langue=${langue}" class="nav-link">${translate[langue]["menu"]["veille"]}</a></li>
                 <li class="nav-item">
                     <select id="langue" name="langue">
-                        <option value="fr">🇫🇷</option>
-                        <option value="en">🇬🇧</option>
+                        <option value="fr">fr</option>
+                        <option value="en">en</option>
                     </select>
                 </li>
             </ul>
@@ -30,26 +30,26 @@ function footer(translate, langue){
             <div class="col-6 col-md-2 mb-3">
                 <h5>${translate[langue]["menu"]["parcours"]}</h5>
                 <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="parcours.html#etudes" class="nav-link p-0 text-muted">Études</a></li>
-                    <li class="nav-item mb-2"><a href="parcours.html#experiences_profesionnelles" class="nav-link p-0 text-muted">Expériences professionnelles</a></li>
-                    <li class="nav-item mb-2"><a href="parcours.html#experiences_personnelles" class="nav-link p-0 text-muted">Expériences personnelles</a></li>
-                    <li class="nav-item mb-2"><a href="parcours.html#technologies" class="nav-link p-0 text-muted">Technologies</a></li>
+                    <li class="nav-item mb-2"><a href="parcours.html?langue=${langue}#etudes" class="nav-link p-0 text-muted">${translate[langue]["footer"]["etudes"]}</a></li>
+                    <li class="nav-item mb-2"><a href="parcours.html?langue=${langue}#experiences_profesionnelles" class="nav-link p-0 text-muted">${translate[langue]["footer"]["exp_pro"]}</a></li>
+                    <li class="nav-item mb-2"><a href="parcours.html?langue=${langue}#experiences_personnelles" class="nav-link p-0 text-muted">${translate[langue]["footer"]["exp_perso"]}</a></li>
+                    <li class="nav-item mb-2"><a href="parcours.html?langue=${langue}#technologies" class="nav-link p-0 text-muted">${translate[langue]["footer"]["techno"]}</a></li>
                 </ul>
             </div>
 
             <div class="col-6 col-md-2 mb-3">
                 <h5>${translate[langue]["menu"]["projet_pro"]}</h5>
                 <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="projet_professionel.html#ecole_integree" class="nav-link p-0 text-muted">École intégrée</a></li>
-                    <li class="nav-item mb-2"><a href="projet_professionel.html#metier_envisage" class="nav-link p-0 text-muted">Métier envisagé</a></li>
+                    <li class="nav-item mb-2"><a href="projet_professionel.html?langue=${langue}#ecole_integree" class="nav-link p-0 text-muted">${translate[langue]["footer"]["ecole_inte"]}</a></li>
+                    <li class="nav-item mb-2"><a href="projet_professionel.html?langue=${langue}#metier_envisage" class="nav-link p-0 text-muted">${translate[langue]["footer"]["metier_envi"]}</a></li>
                 </ul>
             </div>
 
             <div class="col-6 col-md-2 mb-3">
                 <h5>${translate[langue]["menu"]["projets"]}</h5>
                 <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="projets.html#netfloux" class="nav-link p-0 text-muted">Netfloux</a></li>
-                    <li class="nav-item mb-2"><a href="projets.html#argus_online" class="nav-link p-0 text-muted">Argus Online</a></li>
+                    <li class="nav-item mb-2"><a href="projets.html?langue=${langue}#netfloux" class="nav-link p-0 text-muted">Netfloux</a></li>
+                    <li class="nav-item mb-2"><a href="projets.html?langue=${langue}#argus_online" class="nav-link p-0 text-muted">Argus Online</a></li>
                 </ul>
             </div>
         </div>
@@ -116,6 +116,7 @@ async function main(){
     setText(translate, langue);
 
     var langue_select = document.querySelector("#langue");
+    langue_select.value = langue;
     langue_select.addEventListener("change", function(){
         window.location.replace(window.location.pathname + "?langue=" + langue_select.value);
     });
