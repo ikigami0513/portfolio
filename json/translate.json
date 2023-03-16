@@ -15,8 +15,46 @@
             "ecole_inte": "École intégrée",
             "metier_envi": "Métier envisagé"
         },
-        "index": "Titulaire d'un baccalauréat général spécialités mathématiques, physique-chimie et sciences de l'ingénieur, je suis en préparation d'un BTS SIO SLAM au <a target=\"_blank\" href=\"https://www.ensemble-baudimont.com/pole-sup/\">Pôle Sup' de l'Ensemble Baudimont</a> à Arras.<br/><br/> Ce BTS forme principalement au développement web mais également à la programmation orientée objet."
+        "mois": {
+            "jan": "Janvier",
+            "feb": "Février",
+            "mar": "Mars",
+            "avr": "Avril",
+            "mai": "Mai",
+            "juin": "Juin",
+            "jui": "Juillet",
+            "aou": "Août",
+            "sep": "Septembre",
+            "oct": "Octobre",
+            "nov": "Novembre",
+            "dec": "Décembre"
+        },
+        "index": "Titulaire d'un baccalauréat général spécialités mathématiques, physique-chimie et sciences de l'ingénieur, je suis en préparation d'un BTS SIO SLAM au <a target=\"_blank\" href=\"https://www.ensemble-baudimont.com/pole-sup/\">Pôle Sup' de l'Ensemble Baudimont</a> à Arras.<br/><br/> Ce BTS forme principalement au développement web mais également à la programmation orientée objet.",
+        "parcours": {
+            "etudes": {
+                "title": "Études"
+            },
+            "exp_pro": {
+                "title": "Expériences professionnelles",
+                "stage_2_sio_title": "Stage d'informatique 2ème année de BTS",
+                "stage_2_sio_description": "Développement d'un logiciel d'animation sous Unity 3D.",
+                "ikea_title": "Collaborateur restauration",
+                "ikea_description": "Job étudiant, ouverture ou fermeture du restaurant.",
+                "mcdo_title": "Équipier polyvalent",
+                "mcdo_description": "Employé de restauration.",
+                "stage_1_sio_title": "Stage d'informatique 1ère année de BTS",
+                "stage_1_sio_description": "Développement d'un logiciel web de planning.",
+                "depuis": "Depuis"
+            },
+            "exp_perso": {
+                "title": "Expériences personnelles",
+                "argus_description": "Développement de mon propre mmorpg sur Unity3D.",
+                "stage_maths_title": "Stage de mathématiques",
+                "stage_maths_description": "Stage qui m'a permis une première approche de la notion mathématiques des matrices, très utilisées dans le monde de Game Dev."
+            }
+        }
     },
+
     "en": {
         "menu": {
             "qui": "Who I am ?",
@@ -33,6 +71,43 @@
             "ecole_inte": "Integrated school",
             "metier_envi": "Intended job"
         },
-        "index": "Holder of a general baccalaureate with specializations in mathematics, physics-chemistry and engineering sciences, I am preparing for a BTS SIO SLAM at the <a target=\"_blank\" href=\"https://www.ensemble-baudimont.com/pole-sup/\">Pôle Sup' of the Ensemble Baudimont</a> in Arras.<br/><br/> This BTS mainly trains in web development but also in object-oriented programming."
+        "mois": {
+            "jan": "January",
+            "feb": "February",
+            "mar": "March",
+            "avr": "April",
+            "mai": "May",
+            "juin": "June",
+            "jui": "July",
+            "aou": "August",
+            "sep": "September",
+            "oct": "October",
+            "nov": "November",
+            "dec": "December"
+        },
+        "index": "Holder of a general baccalaureate with specializations in mathematics, physics-chemistry and engineering sciences, I am preparing for a BTS SIO SLAM at the <a target=\"_blank\" href=\"https://www.ensemble-baudimont.com/pole-sup/\">Pôle Sup' of the Ensemble Baudimont</a> in Arras.<br/><br/> This BTS mainly trains in web development but also in object-oriented programming.",
+        "parcours": {
+            "etudes": {
+                "title": "Studies"
+            },
+            "exp_pro": {
+                "title": "Professional experiences",
+                "stage_2_sio_title": "Computer science internship 2nd year of BTS",
+                "stage_2_sio_description": "Development of animation software under Unity 3D.",
+                "ikea_title": "Catering collaborator",
+                "ikea_description": "Student job, restaurant opening or closing.",
+                "mcdo_title": "Versatile crew",
+                "mcdo_description": "Catering worker.",
+                "stage_1_sio_title": "Computer science internship 1st year of BTS",
+                "stage_1_sio_description": "Development of web-based planning software.",
+                "depuis": "Since"
+            },
+            "exp_perso": {
+                "title": "Personal experiences",
+                "argus_description": "Development of my own mmorpg on Unity3D.",
+                "stage_maths_title": "Mathematics internship",
+                "stage_maths_description": "Internship which allowed me a first approach to the mathematical notion of matrices, widely used in the world of Game Dev."
+            }
+        }
     }
 }

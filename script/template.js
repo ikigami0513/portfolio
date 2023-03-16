@@ -88,7 +88,38 @@ function index(translate, langue){
 }
 
 function parcours(translate, langue){
-    document.querySelector("");
+    //debut etudes
+    document.querySelector("#etudes_title").innerHTML = translate[langue]["parcours"]["etudes"]["title"];
+    //fin etudes
+
+    //debut experiences pro
+    document.querySelector("#exp_pro_title").innerHTML = translate[langue]["parcours"]["exp_pro"]["title"];
+    document.querySelector("#stage_2_sio_date").innerHTML = translate[langue]["mois"]["jan"] + " - " + translate[langue]["mois"]["feb"] + " 2023";
+    document.querySelector("#stage_2_sio_title").innerHTML = translate[langue]["parcours"]["exp_pro"]["stage_2_sio_title"];
+    document.querySelector("#stage_2_sio_description").innerHTML = translate[langue]["parcours"]["exp_pro"]["stage_2_sio_description"];
+    document.querySelector("#ikea_date").innerHTML = translate[langue]["parcours"]["exp_pro"]["depuis"] + " " + translate[langue]["mois"]["oct"] + " 2022";
+    document.querySelector("#ikea_title").innerHTML = translate[langue]["parcours"]["exp_pro"]["ikea_title"];
+    document.querySelector("#ikea_description").innerHTML = translate[langue]["parcours"]["exp_pro"]["ikea_description"];
+    document.querySelector("#mcdo_date").innerHTML = translate[langue]["mois"]["aou"] + " 2022";
+    document.querySelector("#mcdo_title").innerHTML = translate[langue]["parcours"]["exp_pro"]["mcdo_title"];
+    document.querySelector("#mcdo_description").innerHTML = translate[langue]["parcours"]["exp_pro"]["mcdo_description"];
+    document.querySelector("#stage_1_sio_date").innerHTML = translate[langue]["mois"]["mai"] + " - " + translate[langue]["mois"]["juin"] + " 2022";
+    document.querySelector("#stage_1_sio_title").innerHTML = translate[langue]["parcours"]["exp_pro"]["stage_1_sio_title"];
+    document.querySelector("#stage_1_sio_description").innerHTML = translate[langue]["parcours"]["exp_pro"]["stage_1_sio_description"];
+    //fin experiences pro
+
+    //debut experiences perso
+    document.querySelector("#exp_perso_title").innerHTML = translate[langue]["parcours"]["exp_perso"]["title"];
+    document.querySelector("#argus_date").innerHTML = translate[langue]["parcours"]["exp_pro"]["depuis"] + " " + translate[langue]["mois"]["jan"] + " 2023";
+    document.querySelector("#argus_description").innerHTML = translate[langue]["parcours"]["exp_perso"]["argus_description"];
+    document.querySelector("#stage_maths_date").innerHTML = translate[langue]["mois"]["juin"] + " 2019";
+    document.querySelector("#stage_maths_title").innerHTML = translate[langue]["parcours"]["exp_perso"]["stage_maths_title"];
+    document.querySelector("#stage_maths_description").innerHTML = translate[langue]["parcours"]["exp_perso"]["stage_maths_description"];
+    //fin experience perso
+
+    //debut technologie
+    document.querySelector("#technologie_title").innerHTML = translate[langue]["footer"]["techno"];
+    //fin technologie
 }
 
 function setText(translate, langue){
@@ -96,6 +127,9 @@ function setText(translate, langue){
     switch(file){
         case '/index.html':
             index(translate, langue);
+            break;
+        case '/parcours.html':
+            parcours(translate, langue);
             break;
         default:
             break;
@@ -108,6 +142,9 @@ function setActive(){
     switch(file){
         case "/index.html":
             document.querySelector("#index_link").className = active_class;
+            break;
+        case "/parcours.html":
+            document.querySelector("#parcours_link").className = active_class;
             break;
         default:
             break;
