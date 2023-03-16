@@ -13,7 +13,7 @@ function menu(translate, langue){
                 <li class="nav-item"><a id="projets_link" href="projets.html?langue=${langue}" class="nav-link">${translate[langue]["menu"]["projets"]}</a></li>
                 <li class="nav-item"><a id="veilles_link" href="veilles.html?langue=${langue}" class="nav-link">${translate[langue]["menu"]["veille"]}</a></li>
                 <li class="nav-item">
-                    <select id="langue" name="langue">
+                    <select class="select_lang" id="langue" name="langue">
                         <option value="fr">fr</option>
                         <option value="en">en</option>
                     </select>
@@ -123,7 +123,17 @@ function parcours(translate, langue){
 }
 
 function projet_pro(translate, langue){
+    document.querySelector("#ecole_integree_title").innerHTML = translate[langue]["footer"]["ecole_inte"];
+    document.querySelector("#ecole_integree_description").innerHTML = translate[langue]["projet_pro"]["ecole_integree_description"];
+    document.querySelector("#metier_envi_title").innerHTML = translate[langue]["projet_pro"]["metier_envi_title"];
+    document.querySelector("#metier_envi_description").innerHTML = translate[langue]["projet_pro"]["metier_envi_description"];
+}
 
+function projets(translate, langue){
+    document.querySelector("#perso_projet_title").innerHTML = translate[langue]["projets"]["title"];
+    document.querySelector("#perso_projet_description").innerHTML = translate[langue]["projets"]["description"];
+    document.querySelector("#netfloux_description").innerHTML = translate[langue]["projets"]["netfloux_description"];
+    document.querySelector("#argus_description").innerHTML = translate[langue]["projets"]["argus_description"];
 }
 
 function setText(translate, langue){
@@ -141,6 +151,13 @@ function setText(translate, langue){
         case '/projet_professionel.html':
             document.querySelector("#projet_pro_link").className = active_class;
             projet_pro(translate, langue);
+            break;
+        case '/projets.html':
+            document.querySelector("#projets_link").className = active_class;
+            projets(translate, langue);
+            break;
+        case '/veilles.html':
+            document.querySelector("#veilles_link").className = active_class;
             break;
         default:
             break;
