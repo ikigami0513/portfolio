@@ -7,11 +7,11 @@ function menu(translate, langue){
             </a>
 
             <ul class="nav nav-pills">
-                <li class="nav-item"><a href="index.html?langue=${langue}" class="nav-link active" aria-current="page">${translate[langue]["menu"]["qui"]}</a></li>
-                <li class="nav-item"><a href="parcours.html?langue=${langue}" class="nav-link">${translate[langue]["menu"]["parcours"]}</a></li>
-                <li class="nav-item"><a href="projet_professionel.html?langue=${langue}" class="nav-link">${translate[langue]["menu"]["projet_pro"]}</a></li>
-                <li class="nav-item"><a href="projets.html?langue=${langue}" class="nav-link">${translate[langue]["menu"]["projets"]}</a></li>
-                <li class="nav-item"><a href="veilles.html?langue=${langue}" class="nav-link">${translate[langue]["menu"]["veille"]}</a></li>
+                <li class="nav-item"><a id="index_link" href="index.html?langue=${langue}" class="nav-link">${translate[langue]["menu"]["qui"]}</a></li>
+                <li class="nav-item"><a id="parcours_link" href="parcours.html?langue=${langue}" class="nav-link">${translate[langue]["menu"]["parcours"]}</a></li>
+                <li class="nav-item"><a id="projet_pro_link" href="projet_professionel.html?langue=${langue}" class="nav-link">${translate[langue]["menu"]["projet_pro"]}</a></li>
+                <li class="nav-item"><a id="projets_link" href="projets.html?langue=${langue}" class="nav-link">${translate[langue]["menu"]["projets"]}</a></li>
+                <li class="nav-item"><a id="veilles_link" href="veilles.html?langue=${langue}" class="nav-link">${translate[langue]["menu"]["veille"]}</a></li>
                 <li class="nav-item">
                     <select id="langue" name="langue">
                         <option value="fr">fr</option>
@@ -87,11 +87,27 @@ function index(translate, langue){
     document.querySelector("#index_content").innerHTML = translate[langue]["index"];
 }
 
+function parcours(translate, langue){
+    document.querySelector("");
+}
+
 function setText(translate, langue){
     const file = window.location.pathname;
     switch(file){
         case '/index.html':
             index(translate, langue);
+            break;
+        default:
+            break;
+    }
+}
+
+function setActive(){
+    const file = window.location.pathname;
+    const active_class = "nav-link active";
+    switch(file){
+        case "/index.html":
+            document.querySelector("#index_link").className = active_class;
             break;
         default:
             break;
@@ -111,6 +127,7 @@ async function main(){
     });
 
     menu(translate, langue);
+    setActive();
     footer(translate, langue);
 
     setText(translate, langue);
