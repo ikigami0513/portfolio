@@ -122,8 +122,13 @@ function parcours(translate, langue){
     //fin technologie
 }
 
+function projet_pro(translate, langue){
+
+}
+
 function setText(translate, langue){
     const file = window.location.pathname;
+    const active_class = "nav-link active";
     switch(file){
         case '/index.html':
             document.querySelector("#index_link").className = active_class;
@@ -132,6 +137,10 @@ function setText(translate, langue){
         case '/parcours.html':
             document.querySelector("#parcours_link").className = active_class;
             parcours(translate, langue);
+            break;
+        case '/projet_professionel.html':
+            document.querySelector("#projet_pro_link").className = active_class;
+            projet_pro(translate, langue);
             break;
         default:
             break;
@@ -151,7 +160,7 @@ async function main(){
     });
 
     menu(translate, langue);
-    setActive();
+    setText(translate, langue);
     footer(translate, langue);
 
     var langue_select = document.querySelector("#langue");
