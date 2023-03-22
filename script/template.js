@@ -134,6 +134,7 @@ function projets(translate, langue){
     document.querySelector("#perso_projet_description").innerHTML = translate[langue]["projets"]["description"];
     document.querySelector("#netfloux_description").innerHTML = translate[langue]["projets"]["netfloux_description"];
     document.querySelector("#argus_description").innerHTML = translate[langue]["projets"]["argus_description"];
+    document.querySelector("#animaker_description").innerHTML = translate[langue]["projets"]["animaker_description"];
 }
 
 function setText(translate, langue){
