@@ -140,6 +140,7 @@ function projets(translate, langue){
 function setText(translate, langue){
     const file = window.location.pathname;
     const active_class = "nav-link active";
+    console.log(file);
     switch(file){
         case 'portfolio':
             document.querySelector("#index_link").className = active_class;
