@@ -141,31 +141,31 @@ function setText(translate, langue){
     const file = window.location.pathname;
     const active_class = "nav-link active";
     switch(file){
-        case '':
+        case 'portfolio':
             document.querySelector("#index_link").className = active_class;
             index(translate, langue);
             break;
-        case '/':
+        case 'portfolio/':
             document.querySelector("#index_link").className = active_class;
             index(translate, langue);
             break;
-        case '/index.html':
+        case 'portfolio/index.html':
             document.querySelector("#index_link").className = active_class;
             index(translate, langue);
             break;
-        case '/parcours.html':
+        case 'portfolio/parcours.html':
             document.querySelector("#parcours_link").className = active_class;
             parcours(translate, langue);
             break;
-        case '/projet_professionel.html':
+        case 'portfolio/projet_professionel.html':
             document.querySelector("#projet_pro_link").className = active_class;
             projet_pro(translate, langue);
             break;
-        case '/projets.html':
+        case 'portfolio/projets.html':
             document.querySelector("#projets_link").className = active_class;
             projets(translate, langue);
             break;
-        case '/veilles.html':
+        case 'portfolio/veilles.html':
             document.querySelector("#veilles_link").className = active_class;
             break;
         default:
