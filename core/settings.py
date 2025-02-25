@@ -21,7 +21,6 @@ ALLOWED_HOSTS = ["beagle-vital-mainly.ngrok-free.app", "127.0.0.1", "localhost"]
 
 
 # Application definition
-
 INSTALLED_APPS = [
     # Portfolio Applications
     'projects',
@@ -34,6 +33,7 @@ INSTALLED_APPS = [
     'rosetta',
     'modeltranslation',
     'django_ckeditor_5',
+    'jazzmin',
 
     # Django Core Applications
     'django.contrib.admin',

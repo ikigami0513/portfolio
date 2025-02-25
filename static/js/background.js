@@ -1,6 +1,7 @@
 class SkyBackgroundScene extends Phaser.Scene {
     constructor() {
-        super("SkyBackgroundScene");
+        super({ key: "SkyBackgroundScene" });
+        this.sky = []; // Initialiser le tableau ici
     }
 
     preload() {
@@ -11,14 +12,14 @@ class SkyBackgroundScene extends Phaser.Scene {
     }
 
     create() {
-        this.sky = [];
         for (let i = 0; i < 4; i++) {
             const sky_texture = this.textures.get(`sky_${i}`);
             const frame = sky_texture.getSourceImage();
             const sky_width = frame.width;
             const sky_height = frame.height;
-            const sky = this.add.tileSprite(this.scale.width / 2, this.scale.height / 2, sky_width, sky_height, sky_texture);
-            sky.setScale(this.scale.width / sky_width, this.scale.height / sky_height);
+            const scale_width = this.scale.width > 900 ? this.scale.width : 900;
+            const sky = this.add.tileSprite(scale_width / 2, this.scale.height / 2, sky_width, sky_height, `sky_${i}`);
+            sky.setScale(scale_width / sky_width, this.scale.height / sky_height);
             sky.setScrollFactor(0);
             this.sky.push(sky);
         }
@@ -29,6 +30,18 @@ class SkyBackgroundScene extends Phaser.Scene {
             tileSprite.tilePositionX += 0.2;
         });
     }
+
+    resize() {
+        this.sky.forEach(sky => {
+            const sky_texture = sky.texture;
+            const frame = sky_texture.getSourceImage();
+            const sky_width = frame.width;
+            const sky_height = frame.height;
+            const scale_width = this.scale.width > 900 ? this.scale.width : 900;
+            sky.setScale(scale_width / sky_width, this.scale.height / sky_height);
+            sky.setPosition(scale_width / 2, this.scale.height / 2);
+        });
+    }
 }
 
 const config = {
@@ -36,17 +49,20 @@ const config = {
     backgroundColor: '#000000',
     scale: {
         parent: 'phaser-game',
-        mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH,
         width: window.innerWidth,
-        height: window.innerHeight
+        height: window.innerHeight,
+        mode: Phaser.Scale.RESIZE,
     },
     scene: [SkyBackgroundScene],
-}
+};
 
 const game = new Phaser.Game(config);
 
 window.addEventListener("resize", () => {
-    console.log("resize");
     game.scale.resize(window.innerWidth, window.innerHeight);
+    const scene = game.scene.getScene("SkyBackgroundScene");
+    if (scene) {
+        scene.resize();
+    }
 });

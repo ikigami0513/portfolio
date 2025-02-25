@@ -52,22 +52,25 @@
     </head>
 
     <body class="bg-gray-900 text-white flex flex-col min-h-screen justify-between">
-        <div id="phaser-game" class="-z-1 absolute top-0 left-0"></div>
+        <div id="phaser-game" class="-z-1 fixed top-0 left-0"></div>
 
         {# Navbar #}
-        <nav class="w-full mt-2">
-            <div class="container w-1/2 mx-auto flex justify-between items-center px-6 py-2 bg-transparent-gray-50 rounded-xl space-x-2">
+        <nav class="w-full mt-4 px-2 md:px-0">
+            <div class="grid grid-cols-3 gap-1 container w-full md:w-1/2 md:mx-auto md:flex justify-between items-center px-6 py-2 bg-transparent-gray-50 rounded-xl space-x-2">
                 <a href="{% url 'index_view' %}" class="menu-link flex-1 text-center text-gray-300 hover:text-white hover:bg-gray-900 bg-opacity-100 py-1 px-4 rounded-lg">Accueil</a>
                 <a href="#" class="menu-link flex-1 text-center text-gray-300 hover:text-white hover:bg-gray-900 bg-opacity-100 py-1 px-4 rounded-lg">Projets</a>
                 <a href="#" class="menu-link flex-1 text-center text-gray-300 hover:text-white hover:bg-gray-900 bg-opacity-100 py-1 px-4 rounded-lg">Parcours</a>
+                <a href="#" class="menu-link flex-1 text-center text-gray-300 hover:text-white hover:bg-gray-900 bg-opacity-100 py-1 px-4 rounded-lg">Blog</a>
                 <a href="#" class="menu-link flex-1 text-center text-gray-300 hover:text-white hover:bg-gray-900 bg-opacity-100 py-1 px-4 rounded-lg">Contact</a>
             </div>
         </nav>
 
-        {% block content %}{% endblock content %}
+        <div>
+            {% block content %}{% endblock content %}
+        </div>
 
         {# Footer #}
-        <footer class="w-full py-4 bg-transparent-gray-50 text-center mt-8">
+        <footer class="w-full py-4 bg-transparent-gray-50 text-center mt-8 justify-end">
             <div>
                 {% if profile.github %}
                     <a href="{{ profile.github }}" target="_blank" class="text-2xl"><i class="fab fa-github"></i></a>
