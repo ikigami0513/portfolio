@@ -24,13 +24,13 @@ def technology_logo_file_path(instance: 'Technology', filename: str):
     return os.path.join(f"technology/logo/{instance.id}.{uuid.uuid4()}{file_extension}")
 
 
-class Technology(models.Model):
+class Technology(OrderedModel):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=50)
     logo = models.ImageField(upload_to=technology_logo_file_path)
     category = models.ForeignKey(TechnologyCategory, null=True, blank=True, on_delete=models.SET_NULL)
 
-    class Meta:
+    class Meta(OrderedModel.Meta):
         verbose_name = _("technology")
         verbose_name_plural = _("technologies")
 

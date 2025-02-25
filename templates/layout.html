@@ -1,9 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{% block title %}{% endblock title %} | Rucar Ethan</title>
+        <title>{% block title %}{% endblock title %} | {{ profile.full_name }}</title>
         <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
         <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
         <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
@@ -11,10 +12,78 @@
         <style type="text/tailwindcss">
             @theme {
                 --color-clifford: #da373d;
+                --color-transparent-gray-50: rgba(55, 65, 81, 0.5);
+                --color-transparent-gray-75: rgba(55, 65, 81, 0.75);
             }
         </style>
+
+        <script id="phaser-data" type="application/json">
+            {
+                "sky": [
+                    "{% static 'assets/sky/1.png' %}",
+                    "{% static 'assets/sky/2.png' %}",
+                    "{% static 'assets/sky/3.png' %}",
+                    "{% static 'assets/sky/4.png' %}"
+                ]
+            }
+        </script>
+        <script src="{% static 'js/phaser.js' %}"></script>
+        <script src="{% static 'js/background.js' %}"></script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const actual_year = document.getElementById("actual_year");
+                if (actual_year) {
+                    actual_year.innerHTML = new Date().getFullYear();
+                }
+
+                const menuLinks = document.querySelectorAll(".menu-link");
+
+                menuLinks.forEach((a) => {
+                    const a_path = a.getAttribute("href");
+                    const page_path = window.location.pathname;
+
+                    if (a_path === page_path) {
+                        a.classList.add("bg-gray-900");
+                    }
+                });
+            })
+        </script>
     </head>
-    <body>
-        
+
+    <body class="bg-gray-900 text-white flex flex-col min-h-screen justify-between">
+        <div id="phaser-game" class="-z-1 absolute top-0 left-0"></div>
+
+        {# Navbar #}
+        <nav class="w-full mt-2">
+            <div class="container w-1/2 mx-auto flex justify-between items-center px-6 py-2 bg-transparent-gray-50 rounded-xl space-x-2">
+                <a href="{% url 'index_view' %}" class="menu-link flex-1 text-center text-gray-300 hover:text-white hover:bg-gray-900 bg-opacity-100 py-1 px-4 rounded-lg">Accueil</a>
+                <a href="#" class="menu-link flex-1 text-center text-gray-300 hover:text-white hover:bg-gray-900 bg-opacity-100 py-1 px-4 rounded-lg">Projets</a>
+                <a href="#" class="menu-link flex-1 text-center text-gray-300 hover:text-white hover:bg-gray-900 bg-opacity-100 py-1 px-4 rounded-lg">Parcours</a>
+                <a href="#" class="menu-link flex-1 text-center text-gray-300 hover:text-white hover:bg-gray-900 bg-opacity-100 py-1 px-4 rounded-lg">Contact</a>
+            </div>
+        </nav>
+
+        {% block content %}{% endblock content %}
+
+        {# Footer #}
+        <footer class="w-full py-4 bg-transparent-gray-50 text-center mt-8">
+            <div>
+                {% if profile.github %}
+                    <a href="{{ profile.github }}" target="_blank" class="text-2xl"><i class="fab fa-github"></i></a>
+                {% endif %}
+                {% if profile.linkedin %}
+                    <a href="{{ profile.linkedin }}" target="_blank" class="text-2xl"><i class="fab fa-linkedin"></i></a>
+                {% endif %}
+                {% if profile.discord %}
+                    <a href="{{ profile.discord }}" target="_blank" class="text-2xl"><i class="fab fa-discord"></i></a>
+                {% endif %}
+                {% if profile.twitter %}
+                    <a href="{{ profile.twitter }}" target="_blank" class="text-2xl"><i class="fab fa-twitter"></i></a>
+                {% endif %}
+            </div>
+
+            <p>&copy; <span id="actual_year"></span> {{ profile.full_name }}. Tous droits réservés.</p>
+        </footer>
     </body>
 </html>

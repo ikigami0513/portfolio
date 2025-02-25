@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Accueil
+{% endblock title %}
+
+{% block content %}
+<div class="flex items-center justify-center space-x-4 bg-transparent-gray-75 mx-auto p-6 rounded-xl">
+    <div class="text-right">
+        <h1 class="text-4xl font-bold mb-4">Salut, je suis <span class="text-blue-400">{{ profile.full_name }}</span></h1>
+        <p class="text-lg text-gray-300">
+            {{ profile.description }}
+        </p>
+    </div>
+    <div class="flex items-center justify-center">
+        <img src="{{ profile.picture.url }}" class="h-64 rounded-full" />
+    </div>
+</div>
+{% endblock content %}
