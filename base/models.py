@@ -20,7 +20,7 @@ class Profile(models.Model):
 
     # Personal informations
     picture = models.ImageField(upload_to=profile_picture_file_path, null=True, blank=True)
-    welcome_video = models.FileField(upload_to=welcome_video_file_path, null=True, validators=[FileExtensionValidator(allowed_extensions=['MOV','avi','mp4','webm','mkv'])])
+    welcome_video = models.FileField(upload_to=welcome_video_file_path, null=True, blank=True, validators=[FileExtensionValidator(allowed_extensions=['MOV','avi','mp4','webm','mkv'])])
     last_name = models.CharField(max_length=50)
     first_name = models.CharField(max_length=50)
     description = models.TextField(null=True, blank=True)
