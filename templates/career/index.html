@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Carrière
+{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4">
+    <h1 class="text-3xl font-bold text-center my-8 bg-transparent-gray-50 w-full md:w-1/2 p-2 mx-auto rounded-xl">Expériences Profesionnelles</h1>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for job in jobs.all %}
+            <div class="bg-transparent-gray-75 shadow-lg rounded-lg overflow-hidden">
+                {% if job.header_picture %}
+                    <img src="{{ job.header_picture.url }}" alt="{{ job.name }}" class="w-auto h-48 mx-auto p-2">
+                {% else %}
+                    <div class="w-full h-48 bg-gray-200 flex items-center justify-center p-2">
+                        <span class="text-gray-500">Aucune image</span>
+                    </div>
+                {% endif %}
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold flex items-center justify-between">
+                        <span class="text-blue-400">{{ job.name }}</span>
+                    </h2>
+                    <div class="mt-4 flex flex-wrap gap-2 items-center">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <span>
+                            {{ job.start_date }}
+                        </span>
+                        <span>-</span>
+                        <span>
+                            {% if job.end_date %}
+                                {{ job.end_date }}
+                            {% else %}
+                                aujourd'hui
+                            {% endif %}
+                        </span>
+                    </div>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        {{ job.description }}
+                    </div>
+                </div>
+                <div class="mt-4 flex flex-wrap gap-2 p-2">
+                    {% for tech in job.technologies.all %}
+                        {% if tech.website %}
+                            <a href="{{ tech.website }}" target="_blank" class="bg-gray-900 text-gray-300 text-sm font-medium px-3 py-1 rounded-xl flex items-center justify-center space-x-2">
+                                <img src="{{ tech.logo.url }}" class="h-6"/>
+                                <span>{{ tech.name }}</span>
+                            </a>
+                        {% else %}
+                            <span class="bg-gray-900 text-gray-300 text-sm font-medium px-3 py-1 rounded-xl flex items-center justify-center space-x-2">
+                                <img src="{{ tech.logo.url }}" class="h-6"/>
+                                <span>{{ tech.name }}</span>
+                            </span>
+                        {% endif %}
+                    {% empty %}
+                        <span class="text-gray-500 text-sm">Aucune technologie</span>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    {# ===  === #}
+
+    <h1 class="text-3xl font-bold text-center my-8 bg-transparent-gray-50 w-full md:w-1/2 p-2 mx-auto rounded-xl">Écoles</h1>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for school in schools.all %}
+            <div class="bg-transparent-gray-75 shadow-lg rounded-lg overflow-hidden">
+                {% if school.header_picture %}
+                    <img src="{{ school.header_picture.url }}" alt="{{ school.name }}" class="w-auto h-48 mx-auto p-2">
+                {% else %}
+                    <div class="w-full h-48 bg-gray-200 flex items-center justify-center p-2">
+                        <span class="text-gray-500">Aucune image</span>
+                    </div>
+                {% endif %}
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold flex items-center justify-between">
+                        <span class="text-blue-400">{{ school.name }}</span>
+                    </h2>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        {% for project in school.projects.all %}
+                            <span class="bg-gray-900 text-gray-300 text-sm font-medium px-3 py-1 rounded-xl flex items-center justify-center space-x-2">
+                                {% if project.header_picture %}
+                                    <img src="{{ project.header_picture.url }}" alt="{{ project.name }}" class="w-auto h-10 mx-auto p-2">
+                                {% else %}
+                                    <div class="w-full h-10 bg-gray-200 flex items-center justify-center p-2">
+                                        <span class="text-gray-500">Aucune image</span>
+                                    </div>
+                                {% endif %}
+                                <span>{{ project.name }}</span>
+                            </span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

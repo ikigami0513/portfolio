@@ -9,9 +9,7 @@ class ProjectsListView(View):
     def get(self, request: HttpRequest) -> HttpResponse:
         profile = Profile.objects.first()
         
-        technologies = {}
-        for category in TechnologyCategory.objects.all():
-            technologies[category] = profile.technologies.filter(category=category)
+        technologies = TechnologyCategory.get_from_profile(Profile.objects.first())
 
         projects = {}
         for project_category in ProjectCategory.objects.all():

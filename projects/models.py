@@ -17,6 +17,13 @@ class TechnologyCategory(OrderedModel):
 
     def __str__(self) -> str:
         return self.name
+    
+    @staticmethod
+    def get_from_profile(profile):
+        technologies = {}
+        for category in TechnologyCategory.objects.all():
+            technologies[category] = profile.technologies.filter(category=category)
+        return technologies
 
 
 def technology_logo_file_path(instance: 'Technology', filename: str):
@@ -52,6 +59,9 @@ class ProjectCategory(models.Model):
 
     def __str__(self) -> str:
         return self.name
+    
+    class Meta:
+        ordering = ["name"]
 
 
 class Project(models.Model):

@@ -3,6 +3,7 @@ import uuid
 from django.db import models
 from django.core.validators import FileExtensionValidator
 from projects.models import Technology, Project
+from career.models import School, Job
 
 
 def profile_picture_file_path(instance: 'Profile', filename: str):
@@ -35,6 +36,8 @@ class Profile(models.Model):
     # Cv
     projects = models.ManyToManyField(Project, blank=True)
     technologies = models.ManyToManyField(Technology, blank=True)
+    schools = models.ManyToManyField(School, blank=True)
+    jobs = models.ManyToManyField(Job, blank=True)
 
     def __str__(self) -> str:
         return self.full_name()

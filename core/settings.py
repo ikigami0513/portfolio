@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'projects',
     'blog',
     'base',
+    'career',
     
     # Third Party Applications
     'fontawesomefree',

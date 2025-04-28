@@ -25,7 +25,7 @@ class ProfileAdmin(admin.ModelAdmin):
         [
             "Curriculum vitæ",
             {
-                "fields": ["projects", "technologies"]
+                "fields": ["projects", "technologies", "schools", "jobs"]
             }
         ]
     ]
