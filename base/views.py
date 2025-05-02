@@ -12,3 +12,8 @@ class IndexView(View):
             "technologies": technologies
         })
     
+
+class ContactView(View):
+    def get(self, request: HttpRequest) -> HttpResponse:
+        return render(request, "contact.html")
+    

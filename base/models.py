@@ -26,6 +26,7 @@ class Profile(models.Model):
     first_name = models.CharField(max_length=50)
     description = models.TextField(null=True, blank=True)
     email = models.EmailField()
+    phone_number = models.CharField(max_length=50, null=True, blank=True)
 
     # Social network
     github = models.URLField(null=True, blank=True)

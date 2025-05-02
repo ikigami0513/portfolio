@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}Contact{% endblock title %}
+
+{% block content %}
+<div class="md:flex flex-col items-center justify-center space-y-6 bg-transparent-gray-75 mx-auto w-3/4 p-6 rounded-xl mt-4 text-white">
+    <h1 class="text-3xl font-bold text-center">Contact</h1>
+
+    <div class="text-center flex flex-col gap-y-4">
+        <p class="text-lg flex items-center gap-x-6">
+            <i class="fa-solid fa-square-envelope hover:text-gray-300 text-4xl"></i> 
+            <a href="mailto:{{ profile.email }}" target="_blank" class="text-blue-500 hover:underline">{{ profile.email }}</a>
+        </p>
+        {% if profile.phone_number %}
+            <p class="text-lg mt-2 flex items-center gap-x-6"> 
+                <i class="fa-solid fa-phone hover:text-gray-300 text-4xl"></i>
+                <a href="tel:+{{ profile.phone_number }}" target="_blank" class="text-blue-500 hover:underline">{{ profile.phone_number }}</a>
+            </p>
+        {% endif %}
+    </div>
+
+    <div class="flex space-x-6 mt-4">
+        {% if profile.github %}
+            <a href="{{ profile.github }}" target="_blank" class="hover:text-gray-300 text-4xl">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        {% endif %}
+
+        {% if profile.linkedin %}
+            <a href="{{ profile.linkedin }}" target="_blank" class="hover:text-gray-300 text-4xl">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+        {% endif %}
+
+        {% if profile.discord %}
+            <a href="{{ profile.discord }}" target="_blank" class="hover:text-gray-300 text-4xl">
+                <i class="fa-brands fa-discord"></i>
+            </a>
+        {% endif %}
+
+        {% if profile.twitter %}
+            <a href="{{ profile.twitter }}" target="_blank" class="hover:text-gray-300 text-4xl">
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}
