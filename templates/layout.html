@@ -86,6 +86,9 @@
                 {% endif %}
             </div>
 
+            {% if profile.privacy_policy %}
+                <a href="{% url 'privacy_policy_view' %}">Politique de confidentialité</a>
+            {% endif %}
             <p>&copy; <span id="actual_year"></span> {{ profile.full_name }}. Tous droits réservés.</p>
         </footer>
     </body>
