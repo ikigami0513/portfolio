@@ -23,5 +23,11 @@ class ProfileAdmin(admin.ModelAdmin):
             {
                 "fields": ["projects", "technologies", "schools", "jobs"]
             }
+        ],
+        [
+            "Legal",
+            {
+                "fields": ["privacy_policy"]
+            }
         ]
     ]

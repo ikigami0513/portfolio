@@ -40,6 +40,9 @@ class Profile(models.Model):
     schools = models.ManyToManyField(School, blank=True)
     jobs = models.ManyToManyField(Job, blank=True)
 
+    # Legal section
+    privacy_policy = models.TextField(null=True, blank=True)
+
     def __str__(self) -> str:
         return self.full_name()
 

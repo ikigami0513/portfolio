@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'blog',
     'base',
     'career',
+    'track',
     
     # Third Party Applications
     'fontawesomefree',
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'track.middlewares.VisitorTrackingMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
