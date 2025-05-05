@@ -8,3 +8,5 @@ venv/
 media/
 
 .env
+
+core/settings.py
