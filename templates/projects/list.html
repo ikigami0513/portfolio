@@ -24,11 +24,18 @@
                     <div class="p-4">
                         <h2 class="text-xl font-semibold flex items-center justify-between">
                             <span class="text-blue-400">{{ project.name }}</span>
-                            {% if project.github_link %}
-                                <a href="{{ project.github_link }}" target="_blank" class="text-2xl hover:text-blue-400">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            {% endif %}
+                            <div>
+                                {% if project.github_link %}
+                                    <a href="{{ project.github_link }}" target="_blank" class="text-2xl hover:text-blue-400">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                {% endif %}
+                                {% if project.publish_page %}
+                                    <a href="{% url 'project_detail_view' project_id=project.id %}" class="text-2xl hover:text-blue-400">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    </a>
+                                {% endif %}
+                            </div>
                         </h2>
                         <p class="text-gray-300 mt-2 line-clamp-5">
                             {{ project.description|default:"Aucune description" }}

@@ -1,0 +1,66 @@
+{% extends 'layout.html' %}
+{% load page_tags %}
+
+{% block title %}{{ project.name }}{% endblock title %}
+
+{% block content %}
+    <div class="mx-auto w-3/4 mt-4 text-white">
+        <div class="bg-transparent-gray-75 p-6 rounded-xl space-y-6">
+            <!-- Project Name -->
+            <h1 class="text-4xl font-bold">{{ project.name }}</h1>
+
+            <!-- Description -->
+            {% if project.description %}
+                <p class="text-lg text-gray-300">{{ project.description }}</p>
+            {% endif %}
+
+            <!-- Project Header Picture -->
+            {% if project.header_picture %}
+                <img src="{{ project.header_picture.url }}" alt="{{ project.name }}" class="w-full rounded-lg shadow-lg">
+            {% endif %}
+
+            <!-- GitHub Link -->
+            {% if project.github_link %}
+                <a href="{{ project.github_link }}" target="_blank" class="text-2xl hover:text-blue-400">
+                    <i class="fab fa-github"></i>
+                </a>
+            {% endif %}
+
+            <!-- Technologies Grouped by Category -->
+            {% if project.technologies.all %}
+                <div>
+                    <h2 class="text-2xl font-semibold mt-6">Technologies utilisées</h2>
+                    <div class="mt-2">
+                        <ul class="flex flex-wrap gap-2 mt-1">
+                            {% for tech in project.technologies.all %}
+                                <li class="flex items-center space-x-2 bg-gray-700 rounded-full px-3 py-1">
+                                    {% if tech.logo %}
+                                        <img src="{{ tech.logo.url }}" alt="{{ tech.name }}" class="h-5 w-5 rounded-full">
+                                    {% endif %}
+                                    <span>{{ tech.name }}</span>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            {% endif %}
+
+            <!-- Project Categories -->
+            {% if project.categories.all %}
+                <div>
+                    <h2 class="text-2xl font-semibold mt-6">Catégories du projet</h2>
+                    <ul class="flex flex-wrap gap-2 mt-2">
+                        {% for category in project.categories.all %}
+                            <li class="bg-gray-600 rounded-full px-3 py-1 text-sm">{{ category.name }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
+            <!-- CKEditor Page Content -->
+            {% if project.page %}
+                <h2 class="text-2xl font-semibold mt-6">Informations supplémentaires</h2>
+                {{ project.page|unescape|safe }}
+            {% endif %}
+    </div>
+{% endblock content %}

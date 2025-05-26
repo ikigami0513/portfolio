@@ -71,6 +71,7 @@ class Project(models.Model):
     header_picture = models.ImageField(upload_to=project_header_picture_file_path, null=True, blank=True)
     technologies = models.ManyToManyField(Technology, blank=True)
     page = CKEditor5Field(config_name='extends', null=True, blank=True)
+    publish_page = models.BooleanField(default=False)
     github_link = models.URLField(null=True, blank=True)
     categories = models.ManyToManyField(ProjectCategory, blank=True)
 

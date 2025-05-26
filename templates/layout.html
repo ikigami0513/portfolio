@@ -43,7 +43,7 @@
                     const a_path = a.getAttribute("href");
                     const page_path = window.location.pathname;
 
-                    if (a_path === page_path) {
+                    if (a_path === page_path || (page_path.startsWith(a_path) && a_path !== "/")) {
                         a.classList.add("bg-gray-900");
                     }
                 });

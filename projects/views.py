@@ -1,8 +1,9 @@
+import uuid
 from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse
 from django.views import View
 from base.models import Profile
-from projects.models import TechnologyCategory, ProjectCategory
+from projects.models import TechnologyCategory, ProjectCategory, Project
 
 
 class ProjectsListView(View):
@@ -20,3 +21,10 @@ class ProjectsListView(View):
             "projects": projects
         })
     
+
+class ProjectDetailView(View):
+    def get(self, request: HttpRequest, project_id: uuid.UUID):
+        project = Project.objects.get(id=project_id)
+        return render(request, "projects/detail.html", context={
+            "project": project
+        })
